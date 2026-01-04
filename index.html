@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Movie and Ainme Recommendation System</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- Header Section -->
+        <header>
+            <div class="logo">
+                <i class="fa-solid fa-film"></i> Movie and Ainme Recommendation System
+            </div>
+            <p class="subtitle">Discover your next favorite movie or anime powered by AI</p>
+        </header>
+
+        <!-- Search Section -->
+        <section class="search-section">
+            <div class="search-box">
+                <i class="fa-solid fa-search search-icon"></i>
+                <input type="text" id="movieInput" placeholder="Type a movie or anime name..." list="movieList">
+                <datalist id="movieList"></datalist>
+                <button id="searchBtn" title="Get Recommendations">
+                    <i class="fa-solid fa-wand-magic-sparkles"></i>
+                </button>
+            </div>
+        </section>
+
+        <!-- Loading State -->
+        <div id="loading" class="hidden">
+            <div class="loader"></div>
+            <p>Finding the best matches...</p>
+        </div>
+
+        <!-- Results Section -->
+        <section id="resultsSection" class="results-section hidden">
+            <h2>Because you liked <span id="sourceTitle"></span></h2>
+            <div class="cards-grid" id="cardsGrid">
+                <!-- Cards will be injected here -->
+            </div>
+        </section>
+
+        <!-- Empty State / Intro -->
+        <section id="introState" class="intro-state">
+            <div class="intro-content">
+                <i class="fa-solid fa-clapperboard intro-icon"></i>
+                <h3>Start Your Journey</h3>
+                <p>Select a title from our database of over 5000+ Movies, Anime, and Indian Regional Cinema.</p>
+            </div>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

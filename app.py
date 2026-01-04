@@ -9,13 +9,9 @@ from sklearn.metrics.pairwise import linear_kernel
 # ============================================
 st.set_page_config(page_title="Movie Recommender", page_icon="🎬", layout="wide")
 
-st.title("Movie & Anime Recommendation System")
+st.title(" JASHWANTH Movie & Anime Recommendation System")
 st.markdown("""
 This app recommends movies and anime based on their content (Genre + Description). 
-It uses:
-- **TMDB 5000 Movie Dataset** (Hollywood)
-- **Bollywood Movie Dataset** (Indian)
-- **Anime Dataset** (Japanese Animation)
 """)
 
 # ============================================
@@ -114,6 +110,9 @@ def load_data():
             return platforms
         
         df_ott['platforms'] = df_ott.apply(get_platforms, axis=1)
+        df_ott['platforms'] = df_ott['platforms'].apply(lambda x: tuple(x)) # Convert to tuple for hashing
+        
+        # Preprocessing
         df_ott['genres'] = df_ott['genres'].apply(lambda x: tuple([g.strip() for g in str(x).split(',')]) if pd.notnull(x) else tuple())
         df_ott['cast'] = [tuple() for _ in range(len(df_ott))] # No cast info in this dataset
         
@@ -158,7 +157,7 @@ def load_data():
     # 6. Merge Datasets
     # Ensure all dfs have 'platforms' column
     for df in [df_tmdb, df_bolly, df_anime, df_kannada]:
-        if 'platforms' not in df.columns: df['platforms'] = [[] for _ in range(len(df))]
+        if 'platforms' not in df.columns: df['platforms'] = [tuple() for _ in range(len(df))]
     
     # Ensure all dfs have 'cast' column
     if 'cast' not in df_ott.columns: df_ott['cast'] = [tuple() for _ in range(len(df_ott))]
