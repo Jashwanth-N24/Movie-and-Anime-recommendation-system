@@ -1,12 +1,12 @@
-__pycache__
+# Ignore files and folders that aren't needed in the Docker context
+__pycache__/
 *.pyc
 *.pyo
 *.pyd
-.Python
-env/
-venv/
-.git
-.gitignore
+*.db
+*.sqlite3
+.DS_Store
+.env
 *.log
-cloudflared.exe
-tunnel.txt
+*.pytest_cache/
+.git/

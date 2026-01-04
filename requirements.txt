@@ -1,4 +1,3 @@
-Flask==3.0.0
-flask-cors==4.0.0
-pandas==2.2.0
-scikit-learn==1.4.0
+# Example dependencies. Replace/add based on your project's requirements.
+Flask==2.2.2
+gunicorn==20.1.0
